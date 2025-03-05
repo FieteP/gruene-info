@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="https://www.gruene-herzogenaurach.de/wp-content/uploads/2022/06/Logo-Sonnenblume-Kreis-e1686503152140.png">
+<title>Die Grünen - Info</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        color: #333;
+    }
+
+    header {
+        background-color: #19a229;
+        top: 0;
+        left: 0;
+        color: white;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0px 16px 24px rgba(0, 0, 0, 0.1);
+        position: fixed;
+        width: 100%;
+    }
+
+    header img {
+        height: 100px;
+        margin-right: 20px;
+    }
+
+    .header-text {
+        text-align: left;
+    }
+
+    .header-text h1 {
+        margin: 0;
+        font-size: 1.8em;
+        color: white;
+    }
+
+    .header-text p {
+        margin: 5px 0 0 0;
+        font-size: 1em;
+    }
+
+    main {
+        top: 30%;
+        padding: 20px;
+        text-align: center;
+        margin-top: 10%;
+    }
+
+    .section {
+        margin-bottom: 40px;
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        margin-left: 15%;
+        margin-right: 15%;
+    }
+
+    h1, h2 {
+        color: #36a749;
+    }
+    h3 {
+        color: rgb(0, 90, 0);
+        font-size: x-large;
+    }
+
+    ul {
+        display: inline-block;
+        text-align: left;
+        margin: 0 auto;
+        list-style-type: disc;
+        padding-left: 20px;
+        padding-bottom: 10px;
+        line-height: 2;
+        width: 60%;
+    }
+
+    .list {
+        display: inline-block;
+        text-align: center;
+        margin: 0 auto;
+        list-style-type: disc;
+        padding-left: 20px;
+        line-height: 2;
+        width: 30%;
+    }
+
+    .chart-container-we {
+        max-width: 600px;
+        margin: 20px auto;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        background-color: rgb(208, 255, 203);
+        border-radius: 20px;
+        border: solid;
+        border-width: 10px;
+        border-color: #6CCD87;
+
+    }
+
+    .chart-container-sv {
+        max-width: 500px;
+        margin: 10px auto;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        background-color: rgb(208, 255, 203);
+        border-radius: 20px;
+        border: solid;
+        border-width: 10px;
+        border-color: #6CCD87;
+
+    }
+
+    a {
+        color: white;
+        text-decoration: underline;
+    }
+
+    a:hover {
+        text-decoration: none;
+    }
+
+    .hidden {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease-in-out;
+    }
+
+    .visible {
+        max-height: 500px;
+        transition: max-height 0.5s ease-in-out;
+    }
+
+    .toggle-btn {
+        background-color: #1A8444;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin: 10px 0;
+        width: 60%;
+        height: 40px;
+        font-size: large;
+        font-weight: bold;
+    }
+
+    .toggle-btn:hover {
+        background-color: #6CCD87;
+    }
+
+    .spitzenkandidat-bild {
+        height: 300px;
+        width: auto;
+        border: solid;
+        border-width: 10px;
+        border-color: #6CCD87;
+        border-radius: 20px;
+        margin: 0 auto;
+        margin-bottom: -10px;
+        display: block;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+.links a,
+.sources a {
+    text-decoration: none;
+    color: #6abf4b;
+    display: block;
+    margin: -5px;
+    font-size: 1.1rem;
+}
+
+.links a:hover,
+.sources a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    background-color: #f4f4f4;
+    padding: 10px;
+    text-align: center;
+    border-top: 1px solid #ddd;
+}
+
+footer .impressum {
+    margin-top: -20px;
+}
+
+footer .impressum p {
+    margin: 5px;
+    color: #555;
+}
+
+.impressum .person {
+    display: inline-block;
+    width: 250px;
+    margin: 1rem;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f4f4f4;
+    text-align: left;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.impressum .person p {
+    margin: 0.5rem 0;
+    color: #333;
+}
+
+.impressum .person a {
+    color: #6abf4b;
+    text-decoration: none;
+}
+
+.impressum .person a:hover {
+    text-decoration: underline;
+}
+
+#progress-bar {
+    position: fixed;
+    right: 10px; 
+    top: 60%;
+    transform: translateY(-50%);
+    width: 15px; 
+    height: 70%;
+    background: #e0e0e0; 
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#progress {
+    width: 100%; 
+    height: 0%; 
+    background: #36a749; 
+    border-radius: 5px;
+    transition: height 0.2s ease-out;
+}
+
+</style>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div id="progress-bar">
+        <div id="progress"></div>
+    </div>
+<header>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/B%C3%BCndnis_90_-_Die_Gr%C3%BCnen_Logo.svg/1200px-B%C3%BCndnis_90_-_Die_Gr%C3%BCnen_Logo.svg.png" alt="Logo der Grünen">
+    <div class="header-text">
+        <h1>Bündnis 90/ Die Grünen</h1>
+        <p>Für eine nachhaltige Zukunft, sozialen Wandel und eine lebenswerte Umwelt.</p>
+    </div>
+</header>
+<main>
+    <section class="section">
+        <h2>Über die Grünen</h2>
+        <p>Die Partei Bündnis 90/Die Grünen setzt sich für Umwelt- und Klimaschutz, soziale Gerechtigkeit und eine nachhaltige Zukunft ein.</p>
+        <p>Sie wurde 1980 gegründet und hat seitdem eine wichtige Rolle in der deutschen Politik gespielt.</p>
+    </section>
+
+    <section class="section">
+        <h2>Aktuelle Themen</h2>
+        <div class="list">
+            <ul>
+                <li>Klima und Wirtschaft</li>
+                <li>Gerechtigkeit</li>
+                <li>Demokratie und Freiheit</li>
+                <li>Frieden und Sicherheit</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Wahlergebnisse</h2>
+        <h3>In den letzten Jahren</h3>
+        <div class="chart-container-we">
+            <canvas id="chartWahlergebnisse"></canvas>
+        </div>
+        <h3>Vorläufiges Zweitstimmen- Ergebnis Bundestagswahl 2025</h3>
+        <div class="chart-container-sv">
+            <canvas id="sitzverteilungChart"></canvas>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Schwerpunkte im Wahlprogramm</h2>
+    
+        <button class="toggle-btn" onclick="toggleInfo('infoAussenpolitik')">Außenpolitik/EU</button>
+        <div id="infoAussenpolitik" class="hidden">
+            <ul>
+                <li><b>Europa stärken:</b> Zusammenarbeit als Antwort auf globale Bedrohungen</li>
+                <li><b>Frieden und Sicherheit:</b> Gemeinsames Handeln gegen externe Gefahren und Desinformationen</li>
+                <li><b>Unabhängigkeit sichern:</b> Investitionen in Rohstoffe und lebensnotwendige Produkte innerhalb der EU</li>
+            </ul>
+        </div>
+    
+        <button class="toggle-btn" onclick="toggleInfo('infoInnereSicherheit')">Innere Sicherheit</button>
+        <div id="infoInnereSicherheit" class="hidden">
+            <ul>
+                <li><b>Verlässliche Politik:</b> Reformen für ein stabiles und funktionierendes Deutschland</li>
+            </ul>
+        </div>
+    
+        <button class="toggle-btn" onclick="toggleInfo('infoAsylZuwanderung')">Asyl und Zuwanderung</button>
+        <div id="infoAsylZuwanderung" class="hidden">
+            <ul>
+                <li><b>Humanitäres Asylrecht:</b> Bewahren und weiter ausbauen</li>
+                <li><b>Integration fördern:</b> Programme für bessere gesellschaftliche Teilhabe stärken</li>
+            </ul>
+        </div>
+    
+        <button class="toggle-btn" onclick="toggleInfo('infoWirtschaft')">Wirtschaft</button>
+        <div id="infoWirtschaft" class="hidden">
+            <ul>
+                <li><b>Erneuerbare Energien:</b> Sauber, günstig und unabhängig</li>
+                <li><b>Deutschlandfonds:</b> Finanzierung für Bildung, Infrastruktur und Klimaschutz</li>
+                <li><b>Lebenshaltungskosten senken:</b> Grün und günstig miteinander verbinden</li>
+            </ul>
+        </div>
+    
+        <button class="toggle-btn" onclick="toggleInfo('infoWissenschaft')">Wissenschaft</button>
+        <div id="infoWissenschaft" class="hidden">
+            <ul>
+                <li><b>Forschung fördern:</b> Mehr Unterstützung für Klimaschutzprojekte</li>
+                <li><b>Zusammenarbeit stärken:</b> Interdisziplinäre Projekte gezielt unterstützen</li>
+            </ul>
+        </div>
+    
+        <button class="toggle-btn" onclick="toggleInfo('infoBildung')">Bildung</button>
+        <div id="infoBildung" class="hidden">
+            <ul>
+                <li><b>Moderne Schulen:</b> Kitas und Schulen sanieren und zu attraktiven Lernorten machen</li>
+            </ul>
+        </div>
+    
+        <button class="toggle-btn" onclick="toggleInfo('infoDigitalisierung')">Digitalisierung/KI</button>
+        <div id="infoDigitalisierung" class="hidden">
+            <ul>
+                <li><b>Digitale Infrastruktur:</b> Schnelles Internet für alle Regionen</li>
+                <li><b>Modernisierung:</b> Updates für Deutschlands digitale Systeme</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="section" style="text-align: center; margin-top: 20px;">
+        <h2>Spitzenkandidat</h2>
+        <img src="https://www.bmwk.de/Redaktion/DE/Bilder/Pressefoto/pressefoto-habeck.jpg?__blob=normal&v=1&size=760w" alt="Bild des Spitzenkanditaten der Grüne - Robert Habeck" class="spitzenkandidat-bild">
+        <h3>Robert Habeck</h3>
+        <ul style="list-style-type: none; padding: 0; margin: -15px 0; text-align: center;">
+            <li>Geboren am 2. September 1969 in Lübeck</li>
+            <li>Seit 2002: Mitglied von Bündnis 90/Die Grünen</li>
+            <li>2012 - 2018: Minister für Energiewende und Umwelt in Schleswig-Holstein</li>
+            <li>Seit 2021: Vizekanzler und Bundesminister für Wirtschaft und Klimaschutz</li>
+        </ul>
+    </section>
+
+    <div class="section">
+        <section class="links">
+            <h2>Links zu anderen Parteien</h2>
+            <a href="cdu.html" target="_blank">CDU</a><br>
+            <a href="afd.html" target="_blank">AfD</a><br>
+            <a href="spd.html" target="_blank">SPD</a><br>
+            <a href="bsw.html" target="_blank">BSW</a><br>
+            <a href="fdp.html" target="_blank">FDP</a><br>
+            <a href="linke.html" target="_blank">Die Linke</a>
+        </section>
+    </div>
+    
+    <div class="section">
+        <section class="sources">
+            <h2>Quellennachweise</h2>
+            <a href="https://www.ndr.de/nachrichten/niedersachsen/Bundestagswahl-2025-Gruene-Spitzenkandidatin-Filiz-Polat,kandidatinpolat100.html" target="_blank">NDR.de</a><br>
+            <a href="https://www.gruene.de" target="_blank">Gruene.de</a><br>
+            <a href="https://www.bundestag.de/abgeordnete/biografien20/P/polat_filiz-857860" target="_blank">Bundestag.de</a><br>
+            <a href="https://www.bpb.de/themen/parteien/wer-steht-zur-wahl/hamburg-2025/558589/buendnis-90-die-gruenen/" target="_blank">BPB.de</a><br>
+            <a href="https://www.bundeswahlleiterin.de/bundestagswahlen/2025/ergebnisse/bund-99.html" target="_blank">Bundeswahlleiterin.de</a><br>
+            <a href="https://g.co/kgs/eADpdbM" target="_blank">Google.de (Bundestagswahl)</a>
+        </section>
+    </div>
+    
+    <footer>
+        <section class="impressum">
+            <h2>Impressum</h2>
+            <div class="person">
+                <p><b>Name: </b>Fiete Peckermann</p>
+                <p>
+                    <a href="mailto:fiete.peckermann@aeg-nb.de">fiete.peckermann@aeg-nb.de</a>
+                </p>
+            </div>
+            <div class="person">
+                <p><b>Name: </b>Oskar Bochmann</p>
+                <p>
+                    <a href="mailto:oskar.bochmann@aeg-nb.de">oskar.bochmann@aeg-nb.de</a>    
+                </p>
+            </div>
+            <div class="person">
+                <p><b>Name: </b>Titus Möller</p>
+                <p>
+                    <a href="mailto:titus.moeller@aeg-nb.de">titus.moeller@aeg-nb.de</a>
+                </p>
+            </div>
+        </section>
+    </footer>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+
+<script>
+    const chartCtx = document.getElementById('sitzverteilungChart').getContext('2d');
+
+    new Chart(chartCtx, {
+        type: 'doughnut',
+        data: {
+            labels: ['SPD', 'CDU/CSU', 'Grüne', 'AfD', 'Linke', 'SSW'],
+            datasets: [{
+                data: [120, 208, 85, 152, 64, 1],
+                backgroundColor: ['#e30613', '#000000', '#68a947', '#1e90ff', '#c61d72', '#ffd700'],
+                borderColor: '#ffffff',
+                borderWidth: 2,
+            }],
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: false,
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            const total = context.dataset.data.reduce((acc, value) => acc + value, 0);
+                            const value = context.raw;
+                            const percentage = ((value / total) * 100).toFixed(1);
+                            return `${context.label}: ${value} Sitze (${percentage}%)`;
+                        },
+                    },
+                },
+            },
+            layout: {
+                padding: 20,
+            },
+            plugins: {
+                datalabels: {
+                    backgroundColor: '#ffffff',
+                    color: '#000000',
+                    borderRadius: 8,
+                    padding: 6,
+                    font: {
+                        size: 12,
+                        weight: 'bold',
+                    },
+                    formatter: (value, context) => {
+                        const total = context.chart.data.datasets[0].data.reduce((acc, val) => acc + val, 0);
+                        const percentage = ((value / total) * 100).toFixed(1);
+                        return `${context.chart.data.labels[context.dataIndex]}\n${percentage}%`;
+                    },
+                },
+            },
+        },
+        plugins: [ChartDataLabels],
+    });
+</script>
+
+<script>
+    const ctx = document.getElementById('chartWahlergebnisse').getContext('2d');
+    const chartWahlergebnisse = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['2013', '2017', '2021'],
+            datasets: [
+                {
+                    label: 'Stimmenanteil (%)',
+                    data: [8.4, 8.9, 14.7],
+                    backgroundColor: ['#36a749', '#36a749', '#36a749', '#36a749'],
+                    borderRadius: 5,
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                datalabels: {
+                    anchor: 'end',
+                    align: 'top',
+                    formatter: function (value) {
+                        return value + '%'; 
+                    },
+                    font: {
+                        size: 20,
+                        weight: 'bold',
+                    },
+                    color: '#1A8444', 
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 100,
+                    title: {
+                        display: true,
+                        text: 'Stimmenanteil in Prozent',
+                    }
+                },
+            }
+        },
+        plugins: [ChartDataLabels]
+    });
+
+    function toggleInfo(id) {
+        const info = document.getElementById(id);
+        info.classList.toggle('visible');
+        info.classList.toggle('hidden');
+    }
+
+    
+</script>
+
+<script>
+    document.addEventListener("scroll", () => {
+        const progress = document.getElementById("progress");
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrollPercentage = (scrollTop / scrollHeight) * 100;
+
+        progress.style.height = `${scrollPercentage}%`;
+    });
+</script>
+</body>
+</html>
